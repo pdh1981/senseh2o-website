@@ -354,8 +354,8 @@ footer a { color: var(--chrome-ink); }
         <p>Each site tests a different part of the system, from an accessible campus loch to a river with existing commercial monitoring to benchmark against.</p>
       </div>
       <div class="trial-sites">
-        <article class="trial"><span class="when">Initial trial · 2–3 months</span><h3>Airthrey Loch</h3><p>On the University of Stirling campus. Easy access and good network coverage make it the place to troubleshoot, with lab samples for calibration.</p><div class="chips"><span class="tag">Loch</span><span class="tag">LPWA</span></div></article>
-        <article class="trial"><span class="when">Extended trial · 6 months or more</span><h3>River Almond</h3><p>Almondell &amp; Calderwood Country Park, West Lothian. Sited beside the MOT4Rivers commercial flow-through systems for direct benchmarking, with Scottish Water data on sewer overflows.</p><div class="chips"><span class="tag">River</span><span class="tag">Benchmark</span></div></article>
+        <article class="trial"><span class="when">Nov 2026 – Jun 2028</span><h3>Airthrey Loch</h3><p>On the University of Stirling campus. Easy access and good network coverage make it the place to troubleshoot, with lab samples for calibration.</p><div class="chips"><span class="tag">Loch</span><span class="tag">LPWA</span></div></article>
+        <article class="trial"><span class="when">Mar 2028 – Jun 2028</span><h3>River Almond</h3><p>Almondell &amp; Calderwood Country Park, West Lothian. Sited beside the MOT4Rivers commercial flow-through systems for direct benchmarking, with Scottish Water data on sewer overflows.</p><div class="chips"><span class="tag">River</span><span class="tag">Benchmark</span></div></article>
       </div>
     </div>
   </section>
@@ -407,12 +407,12 @@ footer a { color: var(--chrome-ink); }
       </div>
       <div class="updates" id="updates-list">
         <!-- To add an update: copy one <article> block, paste it at the top, edit the date, tag, title and text. -->
+        <article class="update"><time datetime="2026-11">Nov 2026</time><div><span class="tag">Fieldwork</span><h3>Airthrey Loch deployment begins</h3><p>The first SenseH<sub>2</sub>O stations are being installed on Airthrey Loch, on the University of Stirling campus, where they will run until June 2028.</p></div></article>
         <article class="update"><time datetime="2026-11-08">8 Nov 2026</time><div><span class="tag">Data</span><h3>R and Python clients for the sensor API</h3><p>Researchers can now pull and plot SenseH<sub>2</sub>O observations directly in R or Python using the project's SensorThings client scripts.</p></div></article>
         <article class="update"><time datetime="2026-10-09">9 Oct 2026</time><div><span class="tag">Event</span><h3>SenseH<sub>2</sub>O presented to the Global Water Research Coalition</h3><p>Prof Peter Hunter presented the project to members of the Global Water Research Coalition (GWRC).</p></div></article>
         <article class="update"><time datetime="2026-10-06">6 Oct 2026</time><div><span class="tag">Demonstration</span><h3>IWA World Water Congress tour of the River Almond</h3><p>Delegates from the IWA World Water Congress saw the SenseH<sub>2</sub>O system demonstrated during a tour of the River Almond catchment.</p></div></article>
         <article class="update"><time datetime="2026-09-08">8 Sep 2026</time><div><span class="tag">Event</span><h3>SenseH<sub>2</sub>O at the NERC Digital Gathering 2026</h3><p>Dr Craig Wilkie presented the project at the NERC Digital Gathering 2026, hosted by the University of Stirling.</p></div></article>
         <article class="update"><time datetime="2026-08-25">25 Aug 2026</time><div><span class="tag">Team</span><h3>William Field joins the team</h3><p>William Field has joined the project as Research Software Technician, based at the University of Glasgow.</p></div></article>
-        <article class="update"><time>Date</time><div><span class="tag">Fieldwork</span><h3><span class="ph">[Placeholder: field trial milestones, e.g. Airthrey Loch deployment]</span></h3><p><span class="ph">[Send dates and a sentence or two for each milestone.]</span></p></div></article>
         <article class="update"><time datetime="2024-05-01">1 May 2024</time><div><span class="tag">Event</span><h3>Project introduced at the NERC IEM meeting</h3><p>Peter Hunter and Craig Wilkie presented SenseH<sub>2</sub>O at the Innovation in Environmental Monitoring introductory meeting at Caxton House, London.</p></div></article>
         <article class="update"><time datetime="2024-03-01">Mar 2024</time><div><span class="tag">Milestone</span><h3>SenseH<sub>2</sub>O begins</h3><p>The project starts, funded by NERC through the Innovation in Environmental Monitoring programme.</p></div></article>
       </div>
@@ -533,7 +533,7 @@ function render(sites, isLive) {
   st.className = "status" + (isLive ? " live" : "");
   st.lastElementChild.textContent = isLive
     ? "Live from the SenseH2O SensorThings server. Updated " + new Date().toLocaleString() + "."
-    : "Showing example data. The sensor server needs a sign-in, so this page cannot show live readings until public read access is enabled.";
+    : "Showing example data. Live readings will appear here as SenseH2O stations come online.";
   document.getElementById("sites-data").innerHTML = sites.map(s => {
     const last = Math.max(...s.streams.map(x => x.obs[x.obs.length - 1].t));
     return `<article class="site"><div><h3>${esc(s.thing)}</h3><div class="meta">${esc(s.where)}${s.where ? " · " : ""}last reading ${new Date(last).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}</div></div>` +
